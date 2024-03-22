@@ -43,8 +43,6 @@ public class AppUserDetails implements UserDetails {
         return user.getPseudo();
     }
 
-    public Roles getRole() { return user.getRole(); }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;

@@ -37,6 +37,7 @@ public class OperationController {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
+
         Optional<User> user = userDao.findByPseudo(username);
 
         List<Integer> operationIds = user.get().getOperationList().stream().map(

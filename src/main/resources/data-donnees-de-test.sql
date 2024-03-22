@@ -22,4 +22,4 @@ VALUES (5,"balayer"),
 
 INSERT INTO operation(chantier_id, date, ouvrier_id,tache_id,nom)
 VALUES (1,current_date,2, 2,"terrasse"),
-        (1,current_date,5, 2,"terrasse");
+        (1,current_date,5, 2,"Maison");
