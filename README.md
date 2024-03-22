@@ -1,5 +1,10 @@
 # Evaluation API JAVASpring
 
+## Identifiant
+- Mot de passe: admin
+- utilisateur: admin
+
+
 ## Connexion utilisateur
 - **Création d'un utilisateur**: http://localhost:8080/signin
   - Méthode : POST
