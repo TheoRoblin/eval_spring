@@ -4,6 +4,7 @@ import com.eval.demo.dao.UserDao;
 import com.eval.demo.models.User;
 import com.eval.demo.security.AppUserDetailsService;
 import com.eval.demo.security.JwtUtils;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,8 @@ public class UserController {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/signin")
-    public ResponseEntity signIn(@RequestBody User user) {
+
+    public ResponseEntity signIn(@RequestBody @Valid User user) {
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             userDao.save(user);
             return new ResponseEntity<>(user,HttpStatus.OK);
