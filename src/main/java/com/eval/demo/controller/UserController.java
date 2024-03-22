@@ -5,6 +5,8 @@ import com.eval.demo.models.User;
 import com.eval.demo.security.AppUserDetailsService;
 import com.eval.demo.security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -32,10 +34,10 @@ public class UserController {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/signin")
-    public void signIn(@RequestBody User user) {
-
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userDao.save(user);
+    public ResponseEntity signIn(@RequestBody User user) {
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            userDao.save(user);
+            return new ResponseEntity<>(user,HttpStatus.OK);
     }
 
     @PostMapping("/login")
